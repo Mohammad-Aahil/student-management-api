@@ -24,9 +24,8 @@ export function createStudent(studentData) {
 
   return newStudent;
 }
-// console.log(
-//   createStudent({
-//     name: "BK",
-//     age: 22,
-//   }),
-// );
+
+export function getStudentById(id) {
+  const studentInfo = students.find((student) => student.id === id);
+  return studentInfo;
+}

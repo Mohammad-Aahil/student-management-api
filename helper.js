@@ -1,6 +1,3 @@
-// const numbers = [4, 9, 2, 15, 7];
-// const findHighestNumber = numbers.reduce((maxNum, currentValue) => {
-//   currentValue > maxNum ? (maxNum = currentValue) : maxNum;
-//   return maxNum;
-// }, 0);
-// console.log(findHighestNumber);
+const numbers = [10, 20, 30, 40];
+const find20 = numbers.find((n) => n === 30);
+console.log(find20);

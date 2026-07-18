@@ -1,4 +1,8 @@
-import { createStudent, getAllStudents } from "../services/studentService.js";
+import {
+  createStudent,
+  getAllStudents,
+  getStudentById,
+} from "../services/studentService.js";
 
 export function getStudents(req, res) {
   const students = getAllStudents();
@@ -17,4 +21,18 @@ export function addStudent(request, response) {
     message: "Student created successfully",
     student: newStudent,
   });
+}
+
+export function getStudent(request, response) {
+  // fetch request ID from URL
+  const studentId = Number(request.params.id);
+  const studentInfo = getStudentById(Number(studentId));
+
+  if (!studentInfo) {
+    return response.status(404).json({
+      message: "Student not found",
+    });
+  }
+
+  response.status(200).json(studentInfo);
 }
