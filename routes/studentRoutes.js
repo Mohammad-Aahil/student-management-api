@@ -1,11 +1,8 @@
 import express from "express";
-import { getStudents } from "../controllers/studentController.js";
+import { addStudent, getStudents } from "../controllers/studentController.js";
 
 const router = express.Router();
 router.get("/students", getStudents);
-
-// router.get("/", (request, response) => {
-//   response.send("Student Management API is running..🚀");
-// });
+router.post("/students", addStudent);
 
 export default router;

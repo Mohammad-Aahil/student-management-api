@@ -6,6 +6,10 @@ const app = express();
 
 const PORT = 3000;
 
+// Global Middleware
+app.use(express.json());
+
+// Routes
 app.use("/", studentRoutes);
 app.get("/", (request, response) => {
   response.send("Student Management API is running..🚀");

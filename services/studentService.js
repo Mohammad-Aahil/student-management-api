@@ -4,3 +4,29 @@ export function getAllStudents() {
   return students;
 }
 // console.log(getAllStudents());
+
+export function createStudent(studentData) {
+  // creating new ID for every creation
+  let highestId = 0;
+
+  for (const student of students) {
+    if (student.id > highestId) {
+      highestId = student.id;
+    }
+  }
+
+  //Implementatiom
+  const newStudent = {
+    id: highestId + 1,
+    ...studentData,
+  };
+  students.push(newStudent);
+
+  return newStudent;
+}
+// console.log(
+//   createStudent({
+//     name: "BK",
+//     age: 22,
+//   }),
+// );
