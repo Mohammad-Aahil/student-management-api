@@ -1,7 +1,8 @@
 import {
   createStudent,
+  deleteStudentByID,
   getAllStudents,
-  getStudentById,
+  getStudentByID,
   updateStudentByID,
 } from "../services/studentService.js";
 
@@ -27,7 +28,7 @@ export function addStudent(request, response) {
 export function getStudent(request, response) {
   // fetch request ID from URL
   const studentId = Number(request.params.id);
-  const studentInfo = getStudentById(Number(studentId));
+  const studentInfo = getStudentByID(Number(studentId));
 
   if (!studentInfo) {
     return response.status(404).json({
@@ -51,5 +52,21 @@ export function updateStudent(request, response) {
   return response.status(200).json({
     message: "Student Updated Successfully",
     student: updatedStudent,
+  });
+}
+
+export function deleteStudent(request, response) {
+  const studentId = Number(request.params.id);
+  const studentToDelete = deleteStudentByID(studentId);
+
+  if (!studentToDelete) {
+    return response.status(404).json({
+      message: "Student not found",
+    });
+  }
+
+  return response.status(200).json({
+    message: "Student Deleted Successfully",
+    student: studentToDelete,
   });
 }

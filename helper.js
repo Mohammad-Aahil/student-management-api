@@ -1,18 +1,9 @@
-const objectTesting = [
-  {
-    id: 1,
-    name: "A",
-  },
-  {
-    id: 2,
-    name: "B",
-  },
-];
-function changeObjectValue(id, newObj) {
-  let updatedObj = objectTesting.find((obj) => obj.id === id);
-  Object.assign(updatedObj, newObj);
-  return updatedObj;
-}
+// // const nums = [5, 2, 8, 0, 1];
+// // const find1 = nums.findIndex((n) => n === 1);
+// // console.log(find1);
+// const numbers = [10, 20, 30, 40, 50];
 
-console.log(changeObjectValue(1, { id: 1, name: "Aahil" }));
-console.log(objectTesting);
+// const removed = numbers.splice(2, 2, 100, 200);
+
+// console.log(removed);
+// console.log(numbers);
