@@ -29,3 +29,11 @@ export function getStudentById(id) {
   const studentInfo = students.find((student) => student.id === id);
   return studentInfo;
 }
+
+export function updateStudentByID(id, studentData) {
+  const studentToUpdate = students.find((student) => student.id === id);
+
+  if (!studentToUpdate) undefined;
+  Object.assign(studentToUpdate, studentData);
+  return studentToUpdate;
+}

@@ -1,3 +1,18 @@
-const numbers = [10, 20, 30, 40];
-const find20 = numbers.find((n) => n === 30);
-console.log(find20);
+const objectTesting = [
+  {
+    id: 1,
+    name: "A",
+  },
+  {
+    id: 2,
+    name: "B",
+  },
+];
+function changeObjectValue(id, newObj) {
+  let updatedObj = objectTesting.find((obj) => obj.id === id);
+  Object.assign(updatedObj, newObj);
+  return updatedObj;
+}
+
+console.log(changeObjectValue(1, { id: 1, name: "Aahil" }));
+console.log(objectTesting);

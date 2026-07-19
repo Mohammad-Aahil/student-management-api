@@ -2,6 +2,7 @@ import {
   createStudent,
   getAllStudents,
   getStudentById,
+  updateStudentByID,
 } from "../services/studentService.js";
 
 export function getStudents(req, res) {
@@ -35,4 +36,20 @@ export function getStudent(request, response) {
   }
 
   response.status(200).json(studentInfo);
+}
+
+export function updateStudent(request, response) {
+  const studentId = Number(request.params.id);
+  const updatedStudent = updateStudentByID(studentId, request.body);
+
+  if (!updatedStudent) {
+    return response.status(404).json({
+      message: "Student not found",
+    });
+  }
+
+  return response.status(200).json({
+    message: "Student Updated Successfully",
+    student: updatedStudent,
+  });
 }
