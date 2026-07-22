@@ -8,7 +8,7 @@ import {
 
 export function getStudents(req, res) {
   const students = getAllStudents();
-  console.log(students);
+  // console.log(students);
 
   res.status(200).json(students);
 }

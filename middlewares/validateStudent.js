@@ -54,5 +54,5 @@ export function validateStudent(req, res, next) {
     });
   }
 
-  return next();
+  next();
 }
