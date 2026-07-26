@@ -1,6 +1,5 @@
 export function validateStudent(req, res, next) {
   const { name, age, email, department } = req.body;
-
   //Name Validation
   console.log("Name validation middleware");
   if (!name?.trim()) {
