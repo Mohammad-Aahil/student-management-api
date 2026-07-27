@@ -1,14 +1,14 @@
 import express from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
-import "./database/init.js";
-import db from "./database/connection.js";
-// import Routers
+import { connectDB } from "./config/database.js";
 import studentRoutes from "./routes/studentRoutes.js";
-// import { logger } from "./middlewares/logger.js";
 
 // configure .env variables
 dotenv.config();
+// console.log("PORT:", process.env.PORT);
+// console.log("URI:", process.env.MONGODB_URI);
+await connectDB();
 
 const app = express();
 const PORT = process.env.PORT;
