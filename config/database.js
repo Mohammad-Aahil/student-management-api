@@ -16,20 +16,67 @@ export async function connectDB() {
     // Select collection
     const studentsCollection = db.collection("students");
 
-    // Insert one document
-    const result = await studentsCollection.insertOne({
-      name: "Aahil",
-      age: 21,
-      department: "BCA",
-    });
+    const students = await studentsCollection
+      .find()
+      .sort({
+        age: -1,
+      })
+      .toArray();
+    console.log(students);
 
-    console.log("Inserted ID:", result.insertedId);
+    // const cursor = studentsCollection.find();
+
+    // const students = await studentsCollection
+    //   .find({
+    //     department: {
+    //       $in: ["BCom"],
+    //     },
+    //   })
+    //   .toArray();
+    // for all students .find().toArray();
+    // for departments .find({
+    //   $or: [{ department: "BCA" }, { department: "BCom" }],
+    // })
+    // .toArray();
+    // console.log(students);
   } catch (error) {
     console.error(error);
     process.exit(1);
   }
 }
 
+/*
+1. .find({
+  age: {
+    $gte: 21,
+  }
+}).toArray() // -> follow every condition , assume as I added this..
+
+2.  .find({
+  department: {
+    $ne: 'BCom',
+  }
+})
+
+3.  .find({
+  age: {
+    $gt: 20,
+  },
+  department: {
+    $nin: ["BCA" , "BSc"]
+  }
+})
+
+4.  .find({
+  age: {
+  $gte: 20
+  },
+  department: {
+    $in: ["BCA", "BSc"]
+  },
+})
+
+*/
 // import { MongoClient } from "mongodb";
 
 // export async function connectDB() {
